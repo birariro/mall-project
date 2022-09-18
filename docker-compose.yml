@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  mariadb:
+    container_name: echo-chat-mariadb
+    image: mariadb:10.8.3
+    volumes:
+      - ./share:/share
+      - ./init/:/docker-entrypoint-initdb.d/ #sql 스크립트 파일은 반드시 docker-entrypoint-initdb.d 안으로 넣어야한다.
+    ports:
+      - 4445:3306
+    environment: # 환경 변수 전달
+      MYSQL_ROOT_PASSWORD: "0000" # root 패스워드 지정
+      MYSQL_DATABASE: "echo_chat_db" # 초기 디비 생성
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+  redis:
+    container_name: echo-chat-redis
+    image: redis:7.0.4
+    ports:
+      - 6379:6379
