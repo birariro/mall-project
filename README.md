@@ -1,33 +1,23 @@
 # echo-char-server
 
-## Function
-- jwt
-- REST api
-- TEST code
-- Redis
-
-## api
-| 분류 | 기능 | 메소드 | URL | 구현 |
-| --- | --- | --- | --- | --- |
-| Login | Login | GET | /login | 완료 |
-|  | join | POST | /login/join | 완료 |
-|  |  |  |  |  |
 
 
-## Extend
-- docker
-- docker-compose
-- lombok
-- jjwt
-- p6spy
-- swagger
-- lettuce (redis client)
+## Environment
 
+### Docker Compose setup
+You will need to install Docker and docker-compose.
 
-## setup
+a Docker Compose setup is provided. It comes with the following databases:
+
+To launch the database containers:
+
+- mariadb:10.8.3
+- redis:7.0.4
+```aidl
+ $ docker-compose up -d
 ```
-docker-compose up
-```
+
+
 
 ## ETC
 http://localhost:8081/swagger-ui/index.html#/
