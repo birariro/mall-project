@@ -33,13 +33,12 @@ public class DummyEcho extends DummyMember{
     @BeforeEach
     public void createDummyArticle(){
 
-        String title = "dummy title";
         String context = "dummy context";
 
         Member member = memberService.fetchMember(loginId);
         Assertions.assertNotNull(member);
 
-        echoService.post(member,title,context);
+        echoService.post(member,context);
 
         em.flush();
         em.clear();

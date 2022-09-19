@@ -11,14 +11,12 @@ public class EchoDto {
 
     private long no;
     private String author;
-    private String title;
     private String context;
 
 
     public EchoDto(Echo echo) {
         this.no = echo.getId();
         this.author = echo.getMember().getNickName();
-        this.title = echo.getTitle();
         this.context = echo.getContext();
     }
 }

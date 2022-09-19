@@ -21,4 +21,12 @@ public class RandomUtils {
         return buf.toString();
     }
 
+    public static int getNumber(int minNumber, int maxNumber){
+
+        Random rnd =new Random();
+
+        int rang = maxNumber+1 - minNumber;
+        return rnd.nextInt(rang) + minNumber;
+    }
+
 }

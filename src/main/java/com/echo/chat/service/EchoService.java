@@ -15,9 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class EchoService {
 
     private final EchoRepository echoRepository;
-    public void post(Member member, String title, String context){
+    public void post(Member member, String context){
 
-        Echo echo = new Echo(title, context);
+        Echo echo = new Echo(context);
         member.newEcho(echo);
 
         echoRepository.save(echo);

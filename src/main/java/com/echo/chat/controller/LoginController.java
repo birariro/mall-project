@@ -47,7 +47,7 @@ public class LoginController {
     @PostMapping("/join")
     public ResponseEntity join(@Valid @RequestBody JoinRequest joinRequest){
 
-        Member member = loginService.join(new LoginID(joinRequest.getId()), joinRequest.getPwd(), new NickName(joinRequest.getNickName()), new Email(joinRequest.getEmail()));
+        Member member = loginService.join(new LoginID(joinRequest.getId()), joinRequest.getPwd(),  new Email(joinRequest.getEmail()));
         MemberDto memberDto = new MemberDto(member);
 
         List<LinksResult> links = new ArrayList<>();

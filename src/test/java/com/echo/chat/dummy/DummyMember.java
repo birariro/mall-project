@@ -25,7 +25,7 @@ public class DummyMember {
 
     @BeforeEach
     public void createDummyMember(){
-        Member saveMember = loginService.join(new LoginID(loginId), loginPwd, new NickName(nickName), new Email(email));
+        Member saveMember = loginService.join(new LoginID(loginId), loginPwd, new Email(email));
         Assertions.assertNotNull(saveMember);
     }
 }

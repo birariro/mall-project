@@ -35,7 +35,7 @@ class CreateMemberTest {
     @DisplayName("[성공] 회원가입")
     public void joinSuccess(){
         
-        Member saveMember = loginService.join(new LoginID(loginId), loginPwd, new NickName(nickName), new Email(email));
+        Member saveMember = loginService.join(new LoginID(loginId), loginPwd, new Email(email));
         Assertions.assertNotNull(saveMember);
 
 

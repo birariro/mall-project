@@ -9,8 +9,6 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class EchoRequest {
     @NotBlank
-    private String title;
-    @NotBlank
     private String context;
 
 }

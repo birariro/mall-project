@@ -62,7 +62,7 @@ public class EchoController {
     public ResponseEntity saveArticle(@Valid @RequestBody EchoRequest echoRequest){
 
         Member authMember = memberService.getAuthMember();
-        echoService.post(authMember, echoRequest.getTitle(), echoRequest.getContext());
+        echoService.post(authMember, echoRequest.getContext());
         return ResponseEntity.status(HttpStatus.CREATED).body("hello world");
     }
 }

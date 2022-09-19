@@ -2,6 +2,7 @@ package com.echo.chat.domain;
 
 
 import com.echo.chat.vo.Email;
+import com.echo.chat.vo.Location;
 import com.echo.chat.vo.LoginID;
 import com.echo.chat.vo.NickName;
 import com.echo.chat.domain.base.BaseStateEntity;
@@ -17,7 +18,7 @@ import java.util.*;
 
 @Entity
 @Getter
-@ToString(exclude = {"articles","authorities"})
+@ToString(exclude = {"echoes","authorities"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TB_MEMBER")
 public class Member extends BaseStateEntity implements Serializable {
@@ -42,13 +43,28 @@ public class Member extends BaseStateEntity implements Serializable {
     @AttributeOverride(name = "value", column = @Column(name = "nick_name", nullable = false , unique = true))
     private NickName nickName;
 
-  //  @Column(name = "email")
     @Embedded
     @AttributeOverride(name = "value", column = @Column(name = "email", nullable = false))
     private Email email;
 
+
+    @Embedded
+    @AttributeOverride(name = "value", column = @Column(name = "location"))
+    private Location location;
+
+
     @OneToMany(mappedBy = "member")
     private List<Echo> echoes = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "tb_member_authority",
+            joinColumns = {@JoinColumn(name = "login_id", referencedColumnName = "login_id")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")}
+    )
+    private Set<Authority> authorities = new HashSet<>();
+
+
 
     public Member(LoginID loginID, String loginPWD, NickName nickName, Email email) {
         this.loginID = loginID.getValue();
@@ -64,7 +80,7 @@ public class Member extends BaseStateEntity implements Serializable {
     public void newEcho(Echo echo){
         if(echo != null){
             this.getEchoes().add(echo);
-            echo.setAuthor(this);
+            echo.setMember(this);
         }
     }
 
@@ -80,13 +96,10 @@ public class Member extends BaseStateEntity implements Serializable {
         return nickName.getValue();
     }
 
-    @ManyToMany
-    @JoinTable(
-            name = "tb_member_authority",
-            joinColumns = {@JoinColumn(name = "login_id", referencedColumnName = "login_id")},
-            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")}
-    )
-    private Set<Authority> authorities = new HashSet<>();
+    public String getLocation() {
+        return location.getValue();
+    }
+
 
     public boolean isAdmin(){
 

@@ -18,7 +18,7 @@ import java.util.Set;
 public class SwaggerConfig {
 
     private ApiInfo swaggerInfo() {
-        return new ApiInfoBuilder().title("Simple article api")
+        return new ApiInfoBuilder().title("echo chat server")
                 .description("API Docs").build();
     }
 
@@ -28,7 +28,7 @@ public class SwaggerConfig {
                 .consumes(getConsumeContentTypes())
                 .produces(getProduceContentTypes())
                 .apiInfo(swaggerInfo()).select()
-                .apis(RequestHandlerSelectors.basePackage("com.simple.article.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.echo.chat.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .useDefaultResponseMessages(false);

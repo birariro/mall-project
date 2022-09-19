@@ -13,8 +13,7 @@ public class JoinRequest {
     private String id;
     @NotBlank
     private String pwd;
-    @NotBlank
-    private String nickName;
+
     @NotBlank
     private String email;
 }

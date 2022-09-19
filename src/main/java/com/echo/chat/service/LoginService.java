@@ -1,6 +1,7 @@
 package com.echo.chat.service;
 
 import com.echo.chat.domain.Member;
+import com.echo.chat.utils.NickNameUtils;
 import com.echo.chat.vo.Email;
 import com.echo.chat.vo.LoginID;
 import com.echo.chat.vo.NickName;
@@ -45,12 +46,13 @@ public class LoginService {
 
         return token;
     }
-    public Member join(LoginID id, String pwd, NickName nickName, Email email){
+    public Member join(LoginID id, String pwd, Email email){
 
 
         if(memberService.existLoginId(id.getValue()))
             throw new IllegalStateException("exist member login id");
 
+        NickName nickName = new NickName(NickNameUtils.getInstance().getRandomNickName());
         if(memberService.existNickName(nickName))
             throw new IllegalStateException("exist member nickName");
 
