@@ -2,7 +2,8 @@ package com.echo.chat.common.response.enums;
 
 public enum CommonErrorCode implements ErrorCode{
 
-    ACCESS_DENIAL(-1001,"access denial");
+    ACCESS_DENIAL(-1001,"access denial"),
+    CONFLICT(-1002,"conflict");
 
     int code;
     String msg;

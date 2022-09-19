@@ -71,6 +71,7 @@ public class Member extends BaseStateEntity implements Serializable {
         this.loginPWD = loginPWD;
         this.nickName = nickName;
         this.email = email;
+        this.location = new Location("none");
         this.active();
 
         Authority authority = Authority.userAuth();
@@ -116,5 +117,8 @@ public class Member extends BaseStateEntity implements Serializable {
 
     public void changeNickName(NickName newNickName){
         this.nickName = newNickName;
+    }
+    public void changeLocation(Location location){
+        this.location = location;
     }
 }

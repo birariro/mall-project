@@ -2,6 +2,7 @@ package com.echo.chat.service;
 
 import com.echo.chat.domain.Member;
 import com.echo.chat.vo.Email;
+import com.echo.chat.vo.Location;
 import com.echo.chat.vo.NickName;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CachePut;
@@ -26,10 +27,16 @@ public class MemberPatchService {
         if(op.equals("remove")){
             return removeOp(member,path,value);
         }
-        return member;
+
+        throw new IllegalArgumentException();
     }
 
     private Member replaceOp(Member member,String path, String value){
+        if(path.equals("location")){
+            member.changeLocation(new Location(value));
+            return member;
+        }
+
         if(path.equals("email")){
             member.changeEmail(new Email(value));
             return member;

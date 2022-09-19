@@ -63,6 +63,6 @@ public class EchoController {
 
         Member authMember = memberService.getAuthMember();
         echoService.post(authMember, echoRequest.getContext());
-        return ResponseEntity.status(HttpStatus.CREATED).body("hello world");
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(responseService.getSuccessResult());
     }
 }

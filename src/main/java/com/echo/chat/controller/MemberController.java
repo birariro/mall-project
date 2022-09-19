@@ -83,17 +83,22 @@ public class MemberController {
 
         Member authMember = memberService.getAuthMember();
 
-        if(authMember.isAdmin() || authMember.getLoginID().equals(id)){
+        if(!authMember.isAdmin() && !authMember.getLoginID().equals(id)) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(responseService.getFailResult(CommonErrorCode.ACCESS_DENIAL));
+        }
 
-            Member member = memberService.fetchMember(id);
+        Member member = memberService.fetchMember(id);
+        try{
+
             for (PatchRequest request : patchRequest) {
                 memberPatchService.patch(member,request.getOp(),request.getPath(),request.getValue());
             }
 
-            return ResponseEntity.ok(responseService.getSuccessResult());
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(responseService.getFailResult(CommonErrorCode.ACCESS_DENIAL));
         }
 
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(responseService.getFailResult(CommonErrorCode.ACCESS_DENIAL));
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(responseService.getFailResult(CommonErrorCode.CONFLICT));
     }
 
 }
