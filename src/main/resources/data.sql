@@ -10,11 +10,11 @@ INSERT INTO tb_member_authority (LOGIN_ID, AUTHORITY_NAME) values ('user', 'ROLE
 
 
 --  dummy member
-INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL)  VALUES ('wjsi231', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly',  'swt234@naver.com');
-INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL)  VALUES ('olol227', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly', 'blublu@naver.com');
-INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL)  VALUES ('qwnem01', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly',  'q01@naver.com');
-INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL)  VALUES ('zzzuv34', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly', 'zzzUN@naver.com');
-INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL)  VALUES ('iaiaiai9001', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly','lalalal@naver.com');
+INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL,NICK_NAME, LOCATION)  VALUES ('wjsi231', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly',  'swt234@naver.com','딸기wjsi231','논현역');
+INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL,NICK_NAME, LOCATION)  VALUES ('olol227', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly', 'blublu@naver.com','바나나olol227','저기역');
+INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL,NICK_NAME, LOCATION)  VALUES ('qwnem01', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly',  'q01@naver.com','멜론qwnem01','구로역');
+INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL,NICK_NAME, LOCATION)  VALUES ('zzzuv34', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly', 'zzzUN@naver.com','키위zzzuv34','페브릭역');
+INSERT INTO tb_member (LOGIN_ID, LOGIN_PWD,EMAIL,NICK_NAME, LOCATION)  VALUES ('iaiaiai9001', '$2a$10$0ajkgQCOdO5gIheng00pc.0sX84W8qFW.8hDEdsRsh32B/3pOHPly','lalalal@naver.com','포테이토iaiaiai9001','대부도역');
 
 INSERT INTO tb_member_authority (LOGIN_ID, AUTHORITY_NAME) values ('wjsi231', 'ROLE_USER');
 INSERT INTO tb_member_authority (LOGIN_ID, AUTHORITY_NAME) values ('olol227', 'ROLE_USER');
@@ -24,8 +24,8 @@ INSERT INTO tb_member_authority (LOGIN_ID, AUTHORITY_NAME) values ('iaiaiai9001'
 
 
 -- dummy echo
-INSERT INTO tb_echo (CONTEXT, MEMBER)  VALUES ('admin 나의 첫 게시글 이다.', '1');
-INSERT INTO tb_echo (CONTEXT, MEMBER)  VALUES ('user 나의 첫 게시글 이다.', '2');
-INSERT INTO tb_echo (CONTEXT, MEMBER)  VALUES ('OOO 이런거 공유', '2');
-INSERT INTO tb_echo (CONTEXT, MEMBER)  VALUES ('좋은 내용입니다.', '2');
-INSERT INTO tb_echo (CONTEXT, MEMBER)  VALUES ('진짜 좋은 OOO 이런거 공유', '2');
+INSERT INTO tb_echo (CONTEXT, MEMBER, LOCATION)  VALUES ('admin 나의 첫 게시글 이다.', '1','서울역');
+INSERT INTO tb_echo (CONTEXT, MEMBER, LOCATION)  VALUES ('user 나의 첫 게시글 이다.', '2','역삼역');
+INSERT INTO tb_echo (CONTEXT, MEMBER, LOCATION)  VALUES ('OOO 이런거 공유', '2','인천역');
+INSERT INTO tb_echo (CONTEXT, MEMBER, LOCATION)  VALUES ('좋은 내용입니다.', '2','대림역');
+INSERT INTO tb_echo (CONTEXT, MEMBER, LOCATION)  VALUES ('진짜 좋은 OOO 이런거 공유', '2','신논현역');

@@ -1,6 +1,7 @@
 package com.echo.chat.domain;
 
 import com.echo.chat.domain.base.BaseStateEntity;
+import com.echo.chat.vo.Location;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,10 @@ public class Echo extends BaseStateEntity {
     @Column(name = "context")
     private String context;
 
+    @Embedded
+    @AttributeOverride(name = "value", column = @Column(name = "location"))
+    private Location location;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member")
     private Member member;
@@ -29,5 +34,6 @@ public class Echo extends BaseStateEntity {
 
     public void setMember(Member member){
         this.member = member;
+        this.location = new Location(member.getLocation());
     }
 }

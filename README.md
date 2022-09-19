@@ -13,7 +13,8 @@ To launch the database containers:
 
 - mariadb:10.8.3
 - redis:7.0.4
-```aidl
+
+```
  $ docker-compose up -d
 ```
 
