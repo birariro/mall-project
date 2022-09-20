@@ -30,12 +30,6 @@ spring:
     port: 6379
 
   kafka:
-    consumer:
-      bootstrap-servers: localhost:9092
-      group-id: gorup-id-oing
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
