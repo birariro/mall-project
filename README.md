@@ -6,6 +6,10 @@
 - DBeaver
 - Git
 
+<p>
+    <img src="https://github.com/k4keye/echo-chat-server/etc/architecture.png?raw=true"/>
+</p>
+
 ## Environment
 
 ### Docker Compose setup
