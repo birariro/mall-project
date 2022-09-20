@@ -4,9 +4,7 @@ server:
 spring:
   application:
     name: echo-chat-server
-  redis:
-    host: localhost
-    port: 6379
+
 
   sql:
     init:
@@ -26,6 +24,17 @@ spring:
         show_sql: true
         format_sql: true
     defer-datasource-initialization: true # data.sql 허용
+
+  redis:
+    host: localhost
+    port: 6379
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
 
 Loggin:
   level:

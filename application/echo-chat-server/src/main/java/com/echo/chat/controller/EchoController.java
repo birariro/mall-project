@@ -33,7 +33,7 @@ public class EchoController {
 
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping
-    public ResponseEntity fetchAllArticle(Pageable pageable){
+    public ResponseEntity fetchAllEcho(Pageable pageable){
         Page<EchoDto> articles = echoService.fetchAll(pageable).map(EchoDto::new);
 
         List<LinksResult> links = new ArrayList<>();
@@ -46,7 +46,7 @@ public class EchoController {
 
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping("/{id}")
-    public ResponseEntity fetchArticle(@PathVariable Long id){
+    public ResponseEntity fetchEcho(@PathVariable Long id){
 
         EchoDto article = new EchoDto(echoService.fetch(id));
         SingleResult<EchoDto> responseBody = responseService.getResult(article);
@@ -59,7 +59,7 @@ public class EchoController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "Authorization", value = "jwt Token" , required = true, dataType = "string", paramType = "header")
     }) //swagger 에 jwt 추가 하도록 강제
-    public ResponseEntity saveArticle(@Valid @RequestBody EchoRequest echoRequest){
+    public ResponseEntity saveEcho(@Valid @RequestBody EchoRequest echoRequest){
 
         Member authMember = memberService.getAuthMember();
         echoService.post(authMember, echoRequest.getContext());
