@@ -1,6 +1,10 @@
 # echo-char-server
 
-
+## tool
+- IntelliJ
+- Postman
+- DBeaver
+- Git
 
 ## Environment
 

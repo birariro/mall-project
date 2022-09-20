@@ -61,8 +61,9 @@ public class SecurityConfig {
                 .authorizeRequests() //HttpServletRequest 를 사용하는 요청에 접근제한 활성화
                 .antMatchers("/swagger*/**").permitAll()
                 .antMatchers("/v2/api-docs").permitAll()
-
                 .antMatchers("/login/**").permitAll()
+
+                .antMatchers("/publish").permitAll()
                 .anyRequest().authenticated() //나머지는 인증 필요
 
                 .and()
