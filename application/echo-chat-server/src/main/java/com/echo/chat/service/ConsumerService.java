@@ -6,10 +6,9 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 
 @Service
-public class KafkaConsumerService {
-
+public class ConsumerService {
     @KafkaListener(topics = "message-topic")
-    public void consume(String message) throws IOException{
+    public void consume(String message) throws IOException {
         System.out.println("message = " + message);
     }
 }
