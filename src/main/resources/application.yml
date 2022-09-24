@@ -14,7 +14,6 @@ spring:
   application:
     name: echo-chat-server
 
-
   sql:
     init:
       data-locations: classpath:data.sql # data.sql 위치
