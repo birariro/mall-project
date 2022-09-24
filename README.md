@@ -26,8 +26,14 @@ and kafka :
 - kafka:2.12-2.0.1
 - zookeeper:3.4.6
 
+and ELK :
+- filebeat:7.10.2
+- logstash:7.11.2-arm64
+- elasticsearch:7.10.2-arm64
+- kibana:7.10.2
 
-To launch the database and kafka containers:
+
+To launch the database and kafka and ELK containers:
 
 ```
  $ docker-compose up -d
@@ -53,3 +59,4 @@ topic message send
 
 ## ETC
 http://localhost:8081/swagger-ui/index.html#/
+http://localhost:5601/app/home#/

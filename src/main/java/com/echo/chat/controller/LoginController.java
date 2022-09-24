@@ -8,7 +8,6 @@ import com.echo.chat.controller.dto.response.MemberDto;
 import com.echo.chat.domain.Member;
 import com.echo.chat.vo.Email;
 import com.echo.chat.vo.LoginID;
-import com.echo.chat.vo.NickName;
 import com.echo.chat.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

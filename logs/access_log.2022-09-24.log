@@ -1,0 +1,7 @@
+2022-09-24 16:38:53 200 GET /publish HTTP/1.1 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.104 Whale/3.13.131.36 Safari/537.36 - 0:0:0:0:0:0:0:1 7
+2022-09-24 16:38:54 401 GET /favicon.ico HTTP/1.1 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.104 Whale/3.13.131.36 Safari/537.36 http://localhost:8081/publish 0:0:0:0:0:0:0:1 -
+2022-09-24 16:38:57 200 GET /publish HTTP/1.1 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.104 Whale/3.13.131.36 Safari/537.36 - 0:0:0:0:0:0:0:1 7
+2022-09-24 16:38:57 401 GET /favicon.ico HTTP/1.1 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.104 Whale/3.13.131.36 Safari/537.36 http://localhost:8081/publish 0:0:0:0:0:0:0:1 -
+2022-09-24 16:39:00 401 GET / HTTP/1.1 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.104 Whale/3.13.131.36 Safari/537.36 - 0:0:0:0:0:0:0:1 -
+2022-09-24 16:39:03 400 GET /login HTTP/1.1 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.104 Whale/3.13.131.36 Safari/537.36 - 0:0:0:0:0:0:0:1 9287
+2022-09-24 16:39:04 401 GET /favicon.ico HTTP/1.1 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.104 Whale/3.13.131.36 Safari/537.36 http://localhost:8081/login 0:0:0:0:0:0:0:1 -
