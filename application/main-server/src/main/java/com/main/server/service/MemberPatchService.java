@@ -1,0 +1,57 @@
+package com.main.server.service;
+
+import com.main.server.domain.Member;
+import com.main.server.vo.Email;
+import com.main.server.vo.Location;
+import com.main.server.vo.NickName;
+import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@RequiredArgsConstructor
+public class MemberPatchService {
+    private final MemberService memberService;
+
+    @Transactional
+    @CachePut(value = "Member", key = "#member.loginID")
+    public Member patch(Member member, String op, String path, String value){
+
+        if(op.equals("replace")){
+            return replaceOp(member,path,value);
+        }
+        if(op.equals("add")){
+            return addOp(member,path,value);
+        }
+        if(op.equals("remove")){
+            return removeOp(member,path,value);
+        }
+
+        throw new IllegalArgumentException();
+    }
+
+    private Member replaceOp(Member member,String path, String value){
+        if(path.equals("location")){
+            member.changeLocation(new Location(value));
+            return member;
+        }
+
+        if(path.equals("email")){
+            member.changeEmail(new Email(value));
+            return member;
+        }
+
+        if(path.equals("nickName")){
+            member.changeNickName(new NickName(value));
+            return member;
+        }
+        return member;
+    }
+    private Member addOp(Member member,String path, String value){
+        return member;
+    }
+    private Member removeOp(Member member,String path, String value){
+        return member;
+    }
+}
