@@ -5,6 +5,7 @@ import com.echo.chat.vo.Location;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TB_ECHO")
+@ToString
 public class Echo extends BaseStateEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

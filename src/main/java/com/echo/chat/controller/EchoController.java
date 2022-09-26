@@ -55,14 +55,14 @@ public class EchoController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")//해당 api 접근 권한
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "Authorization", value = "jwt Token" , required = true, dataType = "string", paramType = "header")
-    }) //swagger 에 jwt 추가 하도록 강제
+    })
     public ResponseEntity saveEcho(@Valid @RequestBody EchoRequest echoRequest){
 
         Member authMember = memberService.getAuthMember();
         echoService.post(authMember, echoRequest.getContext());
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(responseService.getSuccessResult());
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseService.getSuccessResult());
     }
 }
