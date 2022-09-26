@@ -1,4 +1,4 @@
-# echo-char-server
+# mall project
 
 ## tool
 - IntelliJ

@@ -14,7 +14,7 @@ services:
       - "4445:3306"
     environment: # 환경 변수 전달
       MYSQL_ROOT_PASSWORD: "0000" # root 패스워드 지정
-      MYSQL_DATABASE: "echo_chat_db" # 초기 디비 생성
+      MYSQL_DATABASE: "mall_db" # 초기 디비 생성
     command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
 
   redis:
