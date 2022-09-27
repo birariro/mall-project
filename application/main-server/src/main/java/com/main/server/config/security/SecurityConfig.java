@@ -1,4 +1,4 @@
-package com.main.server.config;
+package com.main.server.config.security;
 
 import com.main.server.config.auth.JwtAccessDeniedHandler;
 import com.main.server.config.auth.JwtAuthenticationEntryPoint;
@@ -63,7 +63,7 @@ public class SecurityConfig {
                 .antMatchers("/v2/api-docs").permitAll()
                 .antMatchers("/login/**").permitAll()
 
-                .antMatchers("/publish").permitAll()
+                .antMatchers("/test/**").permitAll()
                 .anyRequest().authenticated() //나머지는 인증 필요
 
                 .and()
