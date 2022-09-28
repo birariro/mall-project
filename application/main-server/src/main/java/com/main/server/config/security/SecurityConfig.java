@@ -62,7 +62,7 @@ public class SecurityConfig {
                 .antMatchers("/swagger*/**").permitAll()
                 .antMatchers("/v2/api-docs").permitAll()
                 .antMatchers("/login/**").permitAll()
-
+                .antMatchers("/auth/**").permitAll()
                 .antMatchers("/test/**").permitAll()
                 .anyRequest().authenticated() //나머지는 인증 필요
 

@@ -33,14 +33,14 @@ subprojects {
     dependencies {
         // 다른 프로젝트 들에서 공통적으로 사용할 디펜던시
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-        implementation 'org.springframework.boot:spring-boot-starter-security'
+
         implementation 'org.springframework.boot:spring-boot-starter-web'
         compileOnly 'org.projectlombok:lombok'
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
         annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        testImplementation 'org.springframework.security:spring-security-test'
+
 
         // mariadb
         implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.4'
