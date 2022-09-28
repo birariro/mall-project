@@ -1,4 +1,4 @@
-package com.main.server.service;
+package com.main.server.service.member;
 
 import com.main.server.domain.Member;
 import com.main.server.vo.Email;

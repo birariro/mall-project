@@ -2,6 +2,7 @@ package com.main.server.service;
 
 import com.main.server.domain.Member;
 import com.main.server.domain.repository.MemberRepository;
+import com.main.server.service.member.LoginService;
 import com.main.server.vo.Email;
 import com.main.server.vo.LoginID;
 import org.junit.jupiter.api.Assertions;

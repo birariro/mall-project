@@ -2,7 +2,7 @@ package com.main.server.redis;
 
 import com.main.server.domain.Member;
 import com.main.server.domain.repository.MemberRepository;
-import com.main.server.service.MemberService;
+import com.main.server.service.member.MemberService;
 import com.main.server.vo.Email;
 import com.main.server.vo.LoginID;
 import com.main.server.vo.NickName;

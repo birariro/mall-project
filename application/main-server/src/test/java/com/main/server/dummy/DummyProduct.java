@@ -5,6 +5,7 @@ import com.main.server.domain.Product;
 import com.main.server.domain.repository.ProductRepository;
 import com.main.server.service.ProductService;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,8 +27,7 @@ public class DummyProduct extends DummyMember{
     @Autowired
     EntityManager em;
 
-    //@BeforeEach
-    @Test
+    @BeforeEach
     public void createDummyArticle(){
 
         String productName = "testProductName";

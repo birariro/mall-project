@@ -1,7 +1,8 @@
-package com.main.server.service;
+package com.main.server.service.member;
 
 import com.main.server.config.auth.TokenProvider;
 import com.main.server.domain.Member;
+import com.main.server.service.member.MemberService;
 import com.main.server.utils.NickNameUtils;
 import com.main.server.vo.Email;
 import com.main.server.vo.LoginID;

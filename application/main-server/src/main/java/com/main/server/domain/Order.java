@@ -29,4 +29,13 @@ public class Order extends BaseTimeEntity implements Serializable {
 
     @OneToMany(mappedBy = "order")
     private List<OrderLine> orderLines = new ArrayList<>();
+
+    public Order(Member member) {
+        this.member = member;
+    }
+
+    public void appendOrderLine(OrderLine orderLine){
+        this.orderLines.add(orderLine);
+        orderLine.setOrder(this);
+    }
 }

@@ -2,7 +2,7 @@ package com.main.server.controller;
 
 
 import com.main.server.domain.Member;
-import com.main.server.service.MemberService;
+import com.main.server.service.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

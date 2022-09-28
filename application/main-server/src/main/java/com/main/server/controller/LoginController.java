@@ -8,7 +8,7 @@ import com.main.server.controller.dto.response.MemberDto;
 import com.main.server.domain.Member;
 import com.main.server.vo.Email;
 import com.main.server.vo.LoginID;
-import com.main.server.service.LoginService;
+import com.main.server.service.member.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

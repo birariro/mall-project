@@ -2,6 +2,8 @@ package com.main.server.service;
 
 import com.main.server.domain.Member;
 import com.main.server.dummy.DummyMember;
+import com.main.server.service.member.MemberPatchService;
+import com.main.server.service.member.MemberService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
