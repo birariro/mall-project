@@ -1,29 +1,24 @@
 package com.main.server.dummy;
 
-import com.main.server.domain.Echo;
-import com.main.server.domain.Member;
-import com.main.server.domain.repository.EchoRepository;
+
+import com.main.server.domain.Product;
 import com.main.server.domain.repository.ProductRepository;
-import com.main.server.service.ProducerService;
-import com.main.server.service.MemberService;
+import com.main.server.service.ProductService;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import java.util.List;
 
 @SpringBootTest
 @Transactional
 public class DummyProduct extends DummyMember{
 
     @Autowired
-    private ProducerService producerService;
+    private ProductService productService;
 
-    @Autowired
-    private MemberService memberService;
 
     @Autowired
     private ProductRepository productRepository;
@@ -31,19 +26,19 @@ public class DummyProduct extends DummyMember{
     @Autowired
     EntityManager em;
 
-    @BeforeEach
+    //@BeforeEach
+    @Test
     public void createDummyArticle(){
 
-        String context = "dummy context";
+        String productName = "testProductName";
+        long productPrice = 13400;
+        long productStockQuantity = 40;
 
-        Member member = memberService.fetchMember(loginId);
-        Assertions.assertNotNull(member);
+        Product product = productService.save(productName, productPrice, productStockQuantity);
+        Assertions.assertNotNull(product);
 
-//        producerService.post(member,context);
-//
-//        em.flush();
-//        em.clear();
-//        List<Echo> all = echoRepository.findAll();
-//        Assertions.assertTrue(all.size()>0);
+
+        Assertions.assertEquals(productName,product.getName());
+
     }
 }

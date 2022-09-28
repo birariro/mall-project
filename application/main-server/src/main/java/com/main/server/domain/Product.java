@@ -27,4 +27,10 @@ public class Product extends BaseTimeEntity {
     @Column(name = "stock_quantity")
     private Long stockQuantity;
 
+
+    public Product(String name, Long price, Long stockQuantity) {
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
 }

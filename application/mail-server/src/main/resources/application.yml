@@ -7,7 +7,7 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://127.0.0.1:4445/mall_db
+    url: jdbc:mariadb://127.0.0.1:4445/mall_main_db
     username: root
     password: '0000'
 

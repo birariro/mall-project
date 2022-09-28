@@ -1,5 +1,6 @@
 package com.main.server.service;
 
+import com.main.server.service.outside.RedisService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
