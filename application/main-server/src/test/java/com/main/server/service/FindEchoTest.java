@@ -17,13 +17,13 @@ import org.springframework.transaction.annotation.Transactional;
 public class FindEchoTest {
 
     @Autowired
-    private EchoService echoService;
+    private ProducerService producerService;
     @Test
     @DisplayName("article 전체 조회")
     public void fetchAllArticle(){
         PageRequest of = PageRequest.of(0, 10);
 
-        Page<Echo> articles = echoService.fetchAll(of);
+        Page<Echo> articles = producerService.fetchAll(of);
 
         System.out.println("articles.getTotalElements() = " + articles.getTotalElements());
         Assertions.assertTrue(articles.getTotalElements() > 0);

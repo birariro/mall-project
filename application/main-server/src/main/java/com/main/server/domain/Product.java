@@ -4,11 +4,7 @@ import com.main.server.domain.base.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Entity
@@ -28,7 +24,7 @@ public class Product extends BaseTimeEntity {
     @Column
     private Long price;
 
-    @Column
+    @Column(name = "stock_quantity")
     private Long stockQuantity;
 
 }

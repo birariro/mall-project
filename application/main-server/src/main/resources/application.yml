@@ -12,7 +12,7 @@ server:
 
 spring:
   application:
-    name: api-server
+    name: main-server
 
   sql:
     init:
@@ -20,7 +20,7 @@ spring:
       mode: always # data.sql 허용
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://127.0.0.1:4445/mall_db
+    url: jdbc:mariadb://127.0.0.1:4445/mall_main_db
     username: root
     password: '0000'
 

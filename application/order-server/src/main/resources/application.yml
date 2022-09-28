@@ -7,13 +7,13 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://127.0.0.1:4445/mall_db
+    url: jdbc:mariadb://127.0.0.1:4446/mall_order_db
     username: root
     password: '0000'
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
         show_sql: true
@@ -26,6 +26,9 @@ spring:
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  main-server:
+    url: http://localhost:8081
 
 Loggin:
   level:

@@ -2,7 +2,6 @@ package com.main.server.service;
 
 import com.main.server.domain.Member;
 import com.main.server.vo.Email;
-import com.main.server.vo.Location;
 import com.main.server.vo.NickName;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CachePut;
@@ -32,10 +31,6 @@ public class MemberPatchService {
     }
 
     private Member replaceOp(Member member,String path, String value){
-        if(path.equals("location")){
-            member.changeLocation(new Location(value));
-            return member;
-        }
 
         if(path.equals("email")){
             member.changeEmail(new Email(value));

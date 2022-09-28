@@ -3,7 +3,6 @@ package com.main.server.domain;
 
 import com.main.server.domain.base.BaseStateEntity;
 import com.main.server.vo.Email;
-import com.main.server.vo.Location;
 import com.main.server.vo.LoginID;
 import com.main.server.vo.NickName;
 import lombok.AccessLevel;
@@ -18,7 +17,7 @@ import java.util.*;
 
 @Entity
 @Getter
-@ToString(exclude = {"echoes","authorities"})
+@ToString(exclude = {"authorities"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TB_MEMBER")
 public class Member extends BaseStateEntity  implements Serializable{
@@ -47,13 +46,6 @@ public class Member extends BaseStateEntity  implements Serializable{
     private Email email;
 
 
-    @Embedded
-    @AttributeOverride(name = "value", column = @Column(name = "location"))
-    private Location location;
-
-
-    @OneToMany(mappedBy = "member")
-    private List<Echo> echoes = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -70,19 +62,13 @@ public class Member extends BaseStateEntity  implements Serializable{
         this.loginPWD = loginPWD;
         this.nickName = nickName;
         this.email = email;
-        this.location = new Location("none");
         this.active();
 
         Authority authority = Authority.userAuth();
         this.authorities.add(authority);
     }
 
-    public void newEcho(Echo echo){
-        if(echo != null){
-            this.getEchoes().add(echo);
-            echo.setMember(this);
-        }
-    }
+
 
     public String getEmail() {
         return email.getValue();
@@ -96,9 +82,6 @@ public class Member extends BaseStateEntity  implements Serializable{
         return nickName.getValue();
     }
 
-    public String getLocation() {
-        return location.getValue();
-    }
 
 
     public boolean isAdmin(){
@@ -117,7 +100,5 @@ public class Member extends BaseStateEntity  implements Serializable{
     public void changeNickName(NickName newNickName){
         this.nickName = newNickName;
     }
-    public void changeLocation(Location location){
-        this.location = location;
-    }
+
 }
