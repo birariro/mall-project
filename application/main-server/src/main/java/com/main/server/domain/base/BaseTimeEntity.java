@@ -15,9 +15,8 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
 @Getter
-public class BaseTimeEntity  implements Serializable {
+public class BaseTimeEntity  {
 
-    private static final long serialVersionUID = 1L;
 
     @CreatedDate
     @Column(updatable = false)

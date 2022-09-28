@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -15,9 +17,9 @@ import java.io.Serializable;
 @Table(name = "TB_PRODUCT")
 public class Product extends BaseTimeEntity {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
     private Long id;
 
     @Column
@@ -28,4 +30,5 @@ public class Product extends BaseTimeEntity {
 
     @Column
     private Long stockQuantity;
+
 }

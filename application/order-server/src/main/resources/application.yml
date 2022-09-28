@@ -1,9 +1,9 @@
 server:
-  port: 8090
+  port: 8085
 
 spring:
   application:
-    name: mail-server
+    name: order-server
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
