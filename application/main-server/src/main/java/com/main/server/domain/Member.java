@@ -21,10 +21,9 @@ import java.util.*;
 @ToString(exclude = {"echoes","authorities"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TB_MEMBER")
-public class Member extends BaseStateEntity implements Serializable {
+public class Member extends BaseStateEntity  implements Serializable{
 
     private static final long serialVersionUID = 1L;
-
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

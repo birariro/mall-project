@@ -13,6 +13,22 @@
 
 
 ## Environment
+### Active Port
+
+| name | port |
+|------|------|
+| main server  | 8081  |
+| order server  | 8085  |
+| mail server  | 8090  |
+| mariadb  | 4445  |
+| redis  | 6379  |
+| zookeeper  | 2181  |
+| kafka  | 9092  |
+| elasticsearch  | 9200, 9300  |
+| filebeat  | 5044  |
+| kibana  | 5601  |
+
+
 
 ### Docker Compose setup
 You will need to install Docker and docker-compose.

@@ -1,4 +1,4 @@
-package com.mail.server.service;
+package com.order.server.service;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -9,6 +9,6 @@ import java.io.IOException;
 public class ConsumerService {
     @KafkaListener(topics = "message-topic")
     public void consume(String message) throws IOException {
-        System.out.println("mail message = " + message);
+        System.out.println("order message = " + message);
     }
 }
