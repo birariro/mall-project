@@ -9,6 +9,6 @@ import java.io.IOException;
 public class ConsumerService {
     @KafkaListener(topics = "message-topic")
     public void consume(String message) throws IOException {
-        System.out.println("message = " + message);
+        System.out.println("mail message = " + message);
     }
 }

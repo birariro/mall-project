@@ -18,6 +18,8 @@
 - main server  : 8081
 - order server : 8085
 - mail server  : 8090
+- mariadb : 4445
+- kafka : 9092
 
 ### Docker Compose setup
 You will need to install Docker and docker-compose.

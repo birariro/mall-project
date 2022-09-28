@@ -1,13 +1,13 @@
-package com.mail.server;
+package com.order.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MailServerApplication {
+public class OrderServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MailServerApplication.class, args);
+        SpringApplication.run(OrderServerApplication.class, args);
     }
 
 }
