@@ -2,9 +2,10 @@ package com.main.server.domain;
 
 
 import com.main.server.domain.base.BaseStateEntity;
-import com.main.server.vo.Email;
-import com.main.server.vo.LoginID;
-import com.main.server.vo.NickName;
+import com.main.server.domain.value.Address;
+import com.main.server.domain.vo.Email;
+import com.main.server.domain.vo.LoginID;
+import com.main.server.domain.vo.NickName;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,7 +46,8 @@ public class Member extends BaseStateEntity  implements Serializable{
     @AttributeOverride(name = "value", column = @Column(name = "email", nullable = false))
     private Email email;
 
-
+    @Embedded
+    private Address address;
 
     @ManyToMany
     @JoinTable(
@@ -99,6 +101,10 @@ public class Member extends BaseStateEntity  implements Serializable{
 
     public void changeNickName(NickName newNickName){
         this.nickName = newNickName;
+    }
+
+    public void changeAddress(Address address){
+        this.address = address;
     }
 
 }

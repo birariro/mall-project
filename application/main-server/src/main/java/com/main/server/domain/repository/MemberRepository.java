@@ -1,7 +1,7 @@
 package com.main.server.domain.repository;
 
 import com.main.server.domain.Member;
-import com.main.server.vo.NickName;
+import com.main.server.domain.vo.NickName;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

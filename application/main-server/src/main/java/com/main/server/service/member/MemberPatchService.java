@@ -1,8 +1,8 @@
 package com.main.server.service.member;
 
 import com.main.server.domain.Member;
-import com.main.server.vo.Email;
-import com.main.server.vo.NickName;
+import com.main.server.domain.vo.Email;
+import com.main.server.domain.vo.NickName;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.stereotype.Service;

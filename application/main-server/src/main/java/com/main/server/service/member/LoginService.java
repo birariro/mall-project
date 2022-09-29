@@ -2,11 +2,10 @@ package com.main.server.service.member;
 
 import com.main.server.config.auth.TokenProvider;
 import com.main.server.domain.Member;
-import com.main.server.service.member.MemberService;
 import com.main.server.utils.NickNameUtils;
-import com.main.server.vo.Email;
-import com.main.server.vo.LoginID;
-import com.main.server.vo.NickName;
+import com.main.server.domain.vo.Email;
+import com.main.server.domain.vo.LoginID;
+import com.main.server.domain.vo.NickName;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
