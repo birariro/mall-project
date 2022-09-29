@@ -32,7 +32,7 @@ public class OrderController {
 
         Member authMember = memberService.getAuthMember();
 
-        List<OrderProducts> products = new ArrayList();
+        List<OrderProducts> products = new ArrayList<OrderProducts>();
         for (OrderRequest orderRequest : orderRequests) {
             OrderProducts orderProducts = new OrderProducts(productService.fetch(orderRequest.getProductId()), orderRequest.getProductCount());
             products.add(orderProducts);

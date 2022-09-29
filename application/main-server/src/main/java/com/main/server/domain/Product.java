@@ -4,6 +4,8 @@ import com.main.server.domain.base.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 
 
@@ -11,6 +13,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TB_PRODUCT")
+@ToString
 public class Product extends BaseTimeEntity {
 
     @Id
