@@ -43,4 +43,5 @@ public class Order extends BaseTimeEntity implements Serializable {
         this.orderLines.add(orderLine);
         orderLine.setOrder(this);
     }
+
 }
