@@ -17,18 +17,18 @@ services:
       MYSQL_DATABASE: "mall_main_db" # 초기 디비 생성
     command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
 
-  order-mariadb:
-    container_name: order-mariadb
-    image: mariadb:10.8.3
-    volumes:
-      - ./share:/share
-      - ./init/:/docker-entrypoint-initdb.d/ #sql 스크립트 파일은 반드시 docker-entrypoint-initdb.d 안으로 넣어야한다.
-    ports:
-      - "4446:3306"
-    environment: # 환경 변수 전달
-      MYSQL_ROOT_PASSWORD: "0000" # root 패스워드 지정
-      MYSQL_DATABASE: "mall_order_db" # 초기 디비 생성
-    command: [ 'mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
+#  order-mariadb:
+#    container_name: order-mariadb
+#    image: mariadb:10.8.3
+#    volumes:
+#      - ./share:/share
+#      - ./init/:/docker-entrypoint-initdb.d/ #sql 스크립트 파일은 반드시 docker-entrypoint-initdb.d 안으로 넣어야한다.
+#    ports:
+#      - "4446:3306"
+#    environment: # 환경 변수 전달
+#      MYSQL_ROOT_PASSWORD: "0000" # root 패스워드 지정
+#      MYSQL_DATABASE: "mall_order_db" # 초기 디비 생성
+#    command: [ 'mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
 
   redis:
     container_name: redis
@@ -60,51 +60,51 @@ services:
     depends_on:
       - zookeeper
 
-  filebeat:
-    image: docker.elastic.co/beats/filebeat:7.10.2
-    platform: linux/amd64
-    container_name : filebeat
-    volumes:
-      - ./share/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - ./logs:/logs
-    networks:
-      - elk-network
-
-  logstash:
-    image: docker.elastic.co/logstash/logstash:7.11.2-arm64
-    platform: linux/amd64
-    container_name : logstash
-    networks:
-      - elk-network
-    ports:
-      - "5044:5044"
-    volumes:
-      - ./share/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-    depends_on:
-      - filebeat
-
-  elasticsearch:
-    image : docker.elastic.co/elasticsearch/elasticsearch:7.10.2-arm64
-    platform: linux/amd64
-    container_name : elasticsearch
-    networks:
-      - elk-network
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    environment:
-      discovery.type: single-node
-    depends_on:
-      - logstash
-
-
-  kibana:
-    image : docker.elastic.co/kibana/kibana:7.10.2
-    platform: linux/amd64
-    container_name : kibana
-    networks:
-      - elk-network
-    ports:
-      - "5601:5601"
-    depends_on:
-      - elasticsearch
+#  filebeat:
+#    image: docker.elastic.co/beats/filebeat:7.10.2
+#    platform: linux/amd64
+#    container_name : filebeat
+#    volumes:
+#      - ./share/filebeat.yml:/usr/share/filebeat/filebeat.yml
+#      - ./logs:/logs
+#    networks:
+#      - elk-network
+#
+#  logstash:
+#    image: docker.elastic.co/logstash/logstash:7.11.2-arm64
+#    platform: linux/amd64
+#    container_name : logstash
+#    networks:
+#      - elk-network
+#    ports:
+#      - "5044:5044"
+#    volumes:
+#      - ./share/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+#    depends_on:
+#      - filebeat
+#
+#  elasticsearch:
+#    image : docker.elastic.co/elasticsearch/elasticsearch:7.10.2-arm64
+#    platform: linux/amd64
+#    container_name : elasticsearch
+#    networks:
+#      - elk-network
+#    ports:
+#      - "9200:9200"
+#      - "9300:9300"
+#    environment:
+#      discovery.type: single-node
+#    depends_on:
+#      - logstash
+#
+#
+#  kibana:
+#    image : docker.elastic.co/kibana/kibana:7.10.2
+#    platform: linux/amd64
+#    container_name : kibana
+#    networks:
+#      - elk-network
+#    ports:
+#      - "5601:5601"
+#    depends_on:
+#      - elasticsearch

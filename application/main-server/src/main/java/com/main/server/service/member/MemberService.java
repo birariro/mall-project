@@ -1,9 +1,9 @@
-package com.main.server.service;
+package com.main.server.service.member;
 
 import com.main.server.domain.repository.MemberRepository;
-import com.main.server.vo.Email;
-import com.main.server.vo.LoginID;
-import com.main.server.vo.NickName;
+import com.main.server.domain.vo.Email;
+import com.main.server.domain.vo.LoginID;
+import com.main.server.domain.vo.NickName;
 import com.main.server.common.SecurityUtil;
 import com.main.server.domain.Member;
 import lombok.RequiredArgsConstructor;

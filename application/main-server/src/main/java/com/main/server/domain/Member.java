@@ -2,9 +2,10 @@ package com.main.server.domain;
 
 
 import com.main.server.domain.base.BaseStateEntity;
-import com.main.server.vo.Email;
-import com.main.server.vo.LoginID;
-import com.main.server.vo.NickName;
+import com.main.server.domain.value.Address;
+import com.main.server.domain.vo.Email;
+import com.main.server.domain.vo.LoginID;
+import com.main.server.domain.vo.NickName;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,16 +21,13 @@ import java.util.*;
 @ToString(exclude = {"authorities"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TB_MEMBER")
-public class Member extends BaseStateEntity  implements Serializable{
+public class Member extends BaseStateEntity implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-//    @Embedded
-//    @AttributeOverride(name="value", column=@Column(name="login_id", nullable = false , unique = true))
 
     @Column(name = "login_id")
     private String loginID;
@@ -38,13 +36,13 @@ public class Member extends BaseStateEntity  implements Serializable{
     private String loginPWD;
 
     @Embedded
-    @AttributeOverride(name = "value", column = @Column(name = "nick_name", nullable = false , unique = true))
     private NickName nickName;
 
     @Embedded
-    @AttributeOverride(name = "value", column = @Column(name = "email", nullable = false))
     private Email email;
 
+    @Embedded
+    private Address address;
 
 
     @ManyToMany
@@ -54,7 +52,6 @@ public class Member extends BaseStateEntity  implements Serializable{
             inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "authority_name")}
     )
     private Set<Authority> authorities = new HashSet<>();
-
 
 
     public Member(LoginID loginID, String loginPWD, NickName nickName, Email email) {
@@ -99,6 +96,10 @@ public class Member extends BaseStateEntity  implements Serializable{
 
     public void changeNickName(NickName newNickName){
         this.nickName = newNickName;
+    }
+
+    public void changeAddress(Address address){
+        this.address = address;
     }
 
 }

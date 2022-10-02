@@ -4,6 +4,8 @@ import com.main.server.domain.base.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import javax.persistence.*;
 
 
@@ -11,6 +13,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TB_PRODUCT")
+@ToString
 public class Product extends BaseTimeEntity {
 
     @Id
@@ -33,4 +36,11 @@ public class Product extends BaseTimeEntity {
         this.price = price;
         this.stockQuantity = stockQuantity;
     }
+
+    public void downStockQuantity(Long downCount){
+        long tempStockQuantity = this.stockQuantity - downCount;
+        if(tempStockQuantity < 0 ) throw new IllegalStateException("재고 이탈");
+        this.stockQuantity = tempStockQuantity;
+    }
+
 }

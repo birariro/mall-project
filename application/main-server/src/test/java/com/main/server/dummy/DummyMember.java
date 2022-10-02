@@ -1,9 +1,9 @@
 package com.main.server.dummy;
 
 import com.main.server.domain.Member;
-import com.main.server.service.LoginService;
-import com.main.server.vo.Email;
-import com.main.server.vo.LoginID;
+import com.main.server.service.member.LoginService;
+import com.main.server.domain.vo.Email;
+import com.main.server.domain.vo.LoginID;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;

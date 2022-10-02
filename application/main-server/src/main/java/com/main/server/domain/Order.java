@@ -2,6 +2,7 @@ package com.main.server.domain;
 
 
 import com.main.server.domain.base.BaseTimeEntity;
+import com.main.server.domain.enums.OrderStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,4 +30,18 @@ public class Order extends BaseTimeEntity implements Serializable {
 
     @OneToMany(mappedBy = "order")
     private List<OrderLine> orderLines = new ArrayList<>();
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
+
+    public Order(Member member) {
+        this.member = member;
+        this.status = OrderStatus.ORDER;
+    }
+
+    public void appendOrderLine(OrderLine orderLine){
+        this.orderLines.add(orderLine);
+        orderLine.setOrder(this);
+    }
+
 }
