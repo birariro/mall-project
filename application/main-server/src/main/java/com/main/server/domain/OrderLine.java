@@ -37,13 +37,21 @@ public class OrderLine extends BaseTimeEntity implements Serializable {
 
     public OrderLine(Product product,  Long count) {
         this.product = product;
-        this.orderPrice = product.getPrice() * count;
         this.count = count;
+        this.orderPrice = calcOrderPrice(this.product, this.count);
 
         product.downStockQuantity(count);
     }
 
+    private long calcOrderPrice(Product product,  Long count){
+        return product.getPrice() * count;
+    }
+
     public void setOrder(Order order){
         this.order = order;
+    }
+
+    public void cancel(){
+        this.product.upStockQuantity(this.count);
     }
 }

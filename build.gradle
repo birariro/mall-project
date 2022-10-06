@@ -51,7 +51,6 @@ subprojects {
         useJUnitPlatform()
     }
 
-
     task prepareKotlinBuildScriptModel {
 
     }

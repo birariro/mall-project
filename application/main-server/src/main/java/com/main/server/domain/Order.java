@@ -44,4 +44,8 @@ public class Order extends BaseTimeEntity implements Serializable {
         orderLine.setOrder(this);
     }
 
+    public void cancel(){
+        this.orderLines.stream().forEach(OrderLine::cancel);
+    }
+
 }

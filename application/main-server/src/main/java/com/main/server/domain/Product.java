@@ -43,4 +43,8 @@ public class Product extends BaseTimeEntity {
         this.stockQuantity = tempStockQuantity;
     }
 
+    public void upStockQuantity(Long upCount){
+        this.stockQuantity += upCount;
+    }
+
 }
