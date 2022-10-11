@@ -2,6 +2,7 @@ package com.main.server.service.member;
 
 import com.main.server.config.auth.TokenProvider;
 import com.main.server.domain.Member;
+import com.main.server.domain.value.Address;
 import com.main.server.utils.NickNameUtils;
 import com.main.server.domain.vo.Email;
 import com.main.server.domain.vo.LoginID;
@@ -46,7 +47,7 @@ public class LoginService {
 
         return token;
     }
-    public Member join(LoginID id, String pwd, Email email){
+    public Member join(LoginID id, String pwd, Email email, Address address){
 
 
         if(memberService.existLoginId(id.getValue()))
@@ -58,6 +59,6 @@ public class LoginService {
 
         String encodePwd = passwordEncoder.encode(pwd);
 
-        return memberService.saveMember(id,encodePwd,nickName,email);
+        return memberService.saveMember(id,encodePwd,nickName,email,address);
     }
 }

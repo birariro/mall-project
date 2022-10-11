@@ -6,6 +6,7 @@ import com.main.server.common.response.result.SingleResult;
 import com.main.server.controller.dto.request.JoinRequest;
 import com.main.server.controller.dto.response.MemberDto;
 import com.main.server.domain.Member;
+import com.main.server.domain.value.Address;
 import com.main.server.domain.vo.Email;
 import com.main.server.domain.vo.LoginID;
 import com.main.server.service.member.LoginService;
@@ -46,7 +47,8 @@ public class LoginController {
     @PostMapping("/join")
     public ResponseEntity join(@Valid @RequestBody JoinRequest joinRequest){
 
-        Member member = loginService.join(new LoginID(joinRequest.getId()), joinRequest.getPwd(),  new Email(joinRequest.getEmail()));
+        Address address = new Address(joinRequest.getCity(), joinRequest.getStreet(), joinRequest.getZipcode());
+        Member member = loginService.join(new LoginID(joinRequest.getId()), joinRequest.getPwd(),  new Email(joinRequest.getEmail()),address);
         MemberDto memberDto = new MemberDto(member);
 
         List<LinksResult> links = new ArrayList<>();

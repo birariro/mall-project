@@ -16,4 +16,8 @@ public class JoinRequest {
 
     @NotBlank
     private String email;
+
+    private String city;
+    private String street;
+    private String zipcode;
 }

@@ -1,6 +1,7 @@
 package com.main.server.service.member;
 
 import com.main.server.domain.repository.MemberRepository;
+import com.main.server.domain.value.Address;
 import com.main.server.domain.vo.Email;
 import com.main.server.domain.vo.LoginID;
 import com.main.server.domain.vo.NickName;
@@ -44,8 +45,8 @@ public class MemberService {
         return memberRepository.existsByNickName(nickName);
     }
 
-    public Member saveMember(LoginID id, String pwd, NickName nickName, Email email ){
-        Member member = new Member(id, pwd, nickName, email);
+    public Member saveMember(LoginID id, String pwd, NickName nickName, Email email , Address address){
+        Member member = new Member(id, pwd, nickName, email, address);
         return memberRepository.save(member);
     }
 

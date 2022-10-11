@@ -44,6 +44,8 @@ public class Member extends BaseStateEntity implements Serializable{
     @Embedded
     private Address address;
 
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -54,11 +56,12 @@ public class Member extends BaseStateEntity implements Serializable{
     private Set<Authority> authorities = new HashSet<>();
 
 
-    public Member(LoginID loginID, String loginPWD, NickName nickName, Email email) {
+    public Member(LoginID loginID, String loginPWD, NickName nickName, Email email,  Address address) {
         this.loginID = loginID.getValue();
         this.loginPWD = loginPWD;
         this.nickName = nickName;
         this.email = email;
+        this.address = address;
         this.active();
 
         Authority authority = Authority.userAuth();

@@ -2,6 +2,7 @@ package com.main.server.service;
 
 import com.main.server.domain.Member;
 import com.main.server.domain.repository.MemberRepository;
+import com.main.server.domain.value.Address;
 import com.main.server.service.member.LoginService;
 import com.main.server.domain.vo.Email;
 import com.main.server.domain.vo.LoginID;
@@ -34,8 +35,8 @@ class CreateMemberTest {
     @Test
     @DisplayName("[성공] 회원가입")
     public void joinSuccess(){
-        
-        Member saveMember = loginService.join(new LoginID(loginId), loginPwd, new Email(email));
+        Address address = new Address("city", "street", "zipcode");
+        Member saveMember = loginService.join(new LoginID(loginId), loginPwd, new Email(email),address);
         Assertions.assertNotNull(saveMember);
 
 

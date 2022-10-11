@@ -1,6 +1,7 @@
 package com.main.server.dummy;
 
 import com.main.server.domain.Member;
+import com.main.server.domain.value.Address;
 import com.main.server.service.member.LoginService;
 import com.main.server.domain.vo.Email;
 import com.main.server.domain.vo.LoginID;
@@ -24,7 +25,8 @@ public class DummyMember {
 
     @BeforeEach
     public void createDummyMember(){
-        Member saveMember = loginService.join(new LoginID(loginId), loginPwd, new Email(email));
+        Address address = new Address("city", "street", "zipcode");
+        Member saveMember = loginService.join(new LoginID(loginId), loginPwd, new Email(email),address);
         Assertions.assertNotNull(saveMember);
     }
 }
