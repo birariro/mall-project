@@ -66,4 +66,13 @@ public class OrderController {
         links.add(new LinksResult("detail","/order/{no}"));
         return ResponseEntity.status(HttpStatus.CREATED).body(responseService.getResult(result,links));
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity fetchOrder(@PathVariable Long id){
+
+        Member authMember = memberService.getAuthMember();
+        Order order = orderService.fetchMemberWithOrder(authMember, id);
+        OrderDto orderDto = new OrderDto(order);
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseService.getResult(orderDto));
+    }
 }

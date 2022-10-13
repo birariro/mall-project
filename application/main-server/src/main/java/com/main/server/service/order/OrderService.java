@@ -36,4 +36,13 @@ public class OrderService {
 
         return orderRepository.save(order);
     }
+
+    public Order fetch(Long id){
+        Order order = orderRepository.findById(id).orElseThrow(() -> new IllegalStateException("not exist order"));
+        return order;
+    }
+
+    public Order fetchMemberWithOrder(Member member, Long id){
+        return orderRepository.findByIdAndMember(id,member).orElseThrow(() -> new IllegalStateException("not exist member with order"));
+    }
 }
