@@ -29,15 +29,16 @@ import java.util.List;
 @RequestMapping("/init")
 public class InitController {
 
-    private final MemberService memberService;
+    private final static int CREATE_MEMBER_COUNT = 100;
+    private final static int CREATE_PRODUCT_COUNT = 100;
+    private final static int CREATE_ORDER_COUNT = 200;
+
     private final LoginService loginService;
     private final OrderService orderService;
     private final ProductService productService;
     private final MemberRepository memberRepository;
     private final ProductRepository productRepository;
-    private final static int CREATE_MEMBER_COUNT = 100;
-    private final static int CREATE_PRODUCT_COUNT = 100;
-    private final static int CREATE_ORDER_COUNT = 100;
+
     @GetMapping("/member")
     public ResponseEntity initMembers(){
 
@@ -80,7 +81,6 @@ public class InitController {
         for(int i = 0 ; i <CREATE_ORDER_COUNT ; i ++){
 
             Member member = memberRepository.findById((long) RandomUtils.getSingleNumber(1, memberSize - 1)).get();
-
             List<OrderProducts> products = new ArrayList<OrderProducts>();
 
             int orderLineSize = RandomUtils.getSingleNumber(1, 5);

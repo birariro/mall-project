@@ -8,7 +8,7 @@ public class RandomUtils {
 
         if(length < 10) length = 10;
         Random rnd =new Random();
-        StringBuffer buf =new StringBuffer();
+        StringBuffer buf = new StringBuffer();
 
         for(int i = 0; i<length; i++) {
             //true 문자 , false 숫자
