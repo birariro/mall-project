@@ -21,7 +21,19 @@ public class RandomUtils {
         return buf.toString();
     }
 
-    public static int getNumber(int minNumber, int maxNumber){
+    public static String getNumber(int length){
+
+        if(length < 10) length = 10;
+        Random rnd =new Random();
+        StringBuffer buf =new StringBuffer();
+
+        for(int i = 0; i<length; i++) {
+            buf.append((rnd.nextInt(10)));
+        }
+        return buf.toString();
+    }
+
+    public static int getSingleNumber(int minNumber, int maxNumber){
 
         Random rnd =new Random();
 

@@ -64,6 +64,7 @@ public class SecurityConfig {
                 .antMatchers("/login/**").permitAll()
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers("/test/**").permitAll()
+                .antMatchers("/init/**").permitAll()
                 .anyRequest().authenticated() //나머지는 인증 필요
 
                 .and()

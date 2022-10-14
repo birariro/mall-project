@@ -27,9 +27,9 @@ public class NickNameUtils {
     public String getRandomNickName(){
 
 
-        String randomHead = this.head.get(RandomUtils.getNumber(0, this.head.size()-1));
-        String randomBody = this.body.get(RandomUtils.getNumber(0, this.body.size()-1));
+        String randomHead = this.head.get(RandomUtils.getSingleNumber(0, this.head.size()-1));
+        String randomBody = this.body.get(RandomUtils.getSingleNumber(0, this.body.size()-1));
 
-        return randomHead + "_" + randomBody + "_" + RandomUtils.getNumber(1,100);
+        return randomHead + "_" + randomBody + "_" + RandomUtils.getSingleNumber(1,100);
     }
 }
