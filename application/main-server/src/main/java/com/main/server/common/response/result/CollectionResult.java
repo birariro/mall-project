@@ -10,5 +10,5 @@ import java.util.Collection;
 @Setter
 @ToString
 public class CollectionResult<T> extends CommonResult{
-    private Collection<T> collection;
+    private Collection<T> data;
 }

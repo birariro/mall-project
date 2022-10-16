@@ -3,6 +3,8 @@ package com.main.server.service;
 import com.main.server.domain.Product;
 import com.main.server.domain.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +25,11 @@ public class ProductService {
 
         return productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalStateException("not exist product"));
+    }
+
+    public Page<Product> fetchPage(Pageable page){
+        Page<Product> all = productRepository.findAll(page);
+        return all;
     }
 
 }

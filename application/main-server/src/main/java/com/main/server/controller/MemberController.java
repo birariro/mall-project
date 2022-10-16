@@ -33,7 +33,7 @@ public class MemberController {
 
     @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping
-    public ResponseEntity fetchAllMember(Pageable pageable){
+    public ResponseEntity fetchMembers(Pageable pageable){
         //@RequestParam("page") Integer page, @RequestParam("size") Integer size
         Page<MemberDto> members = memberService.fetchAllMember(pageable).map(MemberDto::new);
 

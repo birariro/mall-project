@@ -89,10 +89,10 @@ topic message send
 |  | 회원 수정 | /member/{id} |  |
 |  | 회원 삭제 | /member/{id} |  |
 |  |  |  |  |
-| 상품 | 상품 전체 조회 | /product |  |
-|  | 상품 조회 | /product/{id} |  |
-|  | 상품 수정 | /member/{id} |  |
-|  | 상품 삭제 | /member/{id} |  |
+| 상품 | 상품 전체 조회 | /product | 완료 |
+|  | 상품 조회 | /product/{id} | 완료 |
+|  | 상품 수정 | /product/{id} |  |
+|  | 상품 삭제 | /product/{id} |  |
 |  |  |  |  |
 | 주문 | 주문 | /order | 완료 |
 |  | 주문 전체 조회 | /order | 완료 |

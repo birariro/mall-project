@@ -57,7 +57,7 @@ public class OrderController {
     }
 
     @GetMapping
-    public ResponseEntity fetchOrdersAll(){
+    public ResponseEntity fetchOrders(){
 
         Member authMember = memberService.getAuthMember();
         List<OrderDto> result = authMember.getOrders().stream().map(OrderDto::new).collect(Collectors.toList());

@@ -55,7 +55,7 @@ public class ResponseService {
 
     public <T> CollectionResult<T> getResult(Collection<T> collection) {
         CollectionResult<T> result = new CollectionResult<T>();
-        result.setCollection(collection);
+        result.setData(collection);
         setSuccessResult(result);
         return result;
     }
