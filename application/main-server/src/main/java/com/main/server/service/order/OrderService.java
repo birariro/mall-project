@@ -8,6 +8,7 @@ import com.main.server.domain.repository.OrderRepository;
 import com.main.server.service.ProductService;
 import com.main.server.service.member.MemberService;
 import com.main.server.service.order.dto.OrderProducts;
+import com.main.server.service.outside.ProducerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +24,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderLineRepository orderLineRepository;
-
+    private final ProducerService producerService;
     public Order post(Member member, List<OrderProducts> products){
 
         Order order = new Order(member);
@@ -32,9 +33,13 @@ public class OrderService {
                 .forEach(orderLine -> {
                     order.appendOrderLine(orderLine);
                     orderLineRepository.save(orderLine);
+                    producerService.orderMessage(orderLine.getProduct().getName());
                 });
 
-        return orderRepository.save(order);
+
+        Order save = orderRepository.save(order);
+        producerService.sendMail(member);
+        return save;
     }
 
     public Order fetch(Long id){

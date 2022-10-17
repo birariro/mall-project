@@ -17,7 +17,9 @@ import com.main.server.utils.RandomUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,20 +31,16 @@ import java.util.List;
 @RequestMapping("/init")
 public class InitController {
 
-    private final static int CREATE_MEMBER_COUNT = 100;
-    private final static int CREATE_PRODUCT_COUNT = 100;
-    private final static int CREATE_ORDER_COUNT = 200;
-
     private final LoginService loginService;
     private final OrderService orderService;
     private final ProductService productService;
     private final MemberRepository memberRepository;
     private final ProductRepository productRepository;
 
-    @GetMapping("/member")
-    public ResponseEntity initMembers(){
+    @GetMapping("/member/{count}")
+    public ResponseEntity initMembers(@PathVariable Long count){
 
-        for(int i = 0 ; i <CREATE_MEMBER_COUNT ; i ++){
+        for(int i = 0 ; i <count ; i ++){
             String id = RandomUtils.getString(true, 5);
             String pwd = RandomUtils.getString(true, 10);
             String email = RandomUtils.getString(true, 5) + "@random.com";
@@ -58,10 +56,10 @@ public class InitController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @GetMapping("/product")
-    public ResponseEntity initProduct(){
+    @GetMapping("/product/{count}")
+    public ResponseEntity initProduct(@PathVariable Long count){
 
-        for(int i = 0 ; i <CREATE_PRODUCT_COUNT ; i ++){
+        for(int i = 0 ; i <count ; i ++){
 
             String name = ProductNameUtils.getInstance().getRandomNickName();
             long productPrice = RandomUtils.getSingleNumber(100,90000);
@@ -72,13 +70,13 @@ public class InitController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @GetMapping("/order")
-    public ResponseEntity initOrder(){
-
+    @GetMapping("/order/{count}")
+    public ResponseEntity initOrder(@PathVariable Long count){
+        System.out.println("count = " + count);
         int memberSize = memberRepository.findAll().size();
         int productSize = productRepository.findAll().size();
 
-        for(int i = 0 ; i <CREATE_ORDER_COUNT ; i ++){
+        for(int i = 0 ; i <count ; i ++){
 
             Member member = memberRepository.findById((long) RandomUtils.getSingleNumber(1, memberSize - 1)).get();
             List<OrderProducts> products = new ArrayList<OrderProducts>();
