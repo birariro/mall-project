@@ -2,12 +2,10 @@ package com.order.server.controller;
 
 
 import com.order.server.service.AuthService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -26,4 +24,5 @@ public class OrderController {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(memberId);
     }
+
 }

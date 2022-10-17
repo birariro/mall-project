@@ -33,7 +33,7 @@ public class OrderService {
                 .forEach(orderLine -> {
                     order.appendOrderLine(orderLine);
                     orderLineRepository.save(orderLine);
-                    producerService.orderMessage(orderLine.getProduct().getName());
+                    producerService.orderMessage(String.valueOf(orderLine.getProduct().getId()));
                 });
 
 

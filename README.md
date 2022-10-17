@@ -74,29 +74,37 @@ topic message send
 ./opt/kafka_2.12-2.0.1/bin/kafka-console-producer.sh --topic message-topic --broker-list localhost:9092
 ```
 
+### redis
+```
+> redis-cli 
+> info
+> keys * 
+> flushall 
+```
 ## Make
-| 카테고리 | 기능 | url |  |
-| --- | --- | --- | --- |
-| 초기화 | 회원 생성 | /init/member | 완료 |
-|  | 상품 생성 | /init/product | 완료 |
-|  | 주문 생성 | /init/order | 완료 |
-|  |  |  |  |
-| 로그인 | 로그인 | /login | 완료 |
-|  | 회원가입 | /login/join | 완료 |
-|  |  |  |  |
-| 회원 | 회원 전체 조회 | /member | 완료 |
-|  | 회원 조회 | /member/{id} | 완료 |
-|  | 회원 수정 | /member/{id} |  |
-|  | 회원 삭제 | /member/{id} |  |
-|  |  |  |  |
-| 상품 | 상품 전체 조회 | /product | 완료 |
-|  | 상품 조회 | /product/{id} | 완료 |
-|  | 상품 수정 | /product/{id} |  |
-|  | 상품 삭제 | /product/{id} |  |
-|  |  |  |  |
-| 주문 | 주문 | /order | 완료 |
-|  | 주문 전체 조회 | /order | 완료 |
-|  | 주문 조회 | /order/{id} | 완료 |
+| 카테고리 | 기능        | url                  |  |
+| --- |-----------|----------------------| --- |
+| 초기화 | 회원 생성     | :8081/init/member    | 완료 |
+|  | 상품 생성     | :8081/init/product   | 완료 |
+|  | 주문 생성     | :8081/init/order     | 완료 |
+|  |           |                      |  |
+| 로그인 | 로그인       | :8081/login          | 완료 |
+|  | 회원가입      | :8081/login/join     | 완료 |
+|  |           |                      |  |
+| 회원 | 회원 전체 조회  | :8081/member         | 완료 |
+|  | 회원 조회     | :8081/member/{id}    | 완료 |
+|  | 회원 수정     | :8081/member/{id}    |  |
+|  | 회원 삭제     | :8081/member/{id}    |  |
+|  |           |                      |  |
+| 상품 | 상품 전체 조회  | :8081/product        | 완료 |
+|  | 상품 조회     | :8081/product/{id}   | 완료 |
+|  | 베스트 상품 조회 | :8085/statistics/best | 완료 |
+|  | 상품 수정     | :8081/product/{id}   |  |
+|  | 상품 삭제     | :8081/product/{id}   |  |
+|  |           |                      |  |
+| 주문 | 주문        | :8081/order          | 완료 |
+|  | 주문 전체 조회  | :8081/order          | 완료 |
+|  | 주문 조회     | :8081/order/{id}          | 완료 |
 ## ETC
 http://localhost:8081/swagger-ui/index.html#/ </br>
 http://localhost:5601/app/home#/
