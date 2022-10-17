@@ -1,6 +1,6 @@
-package com.order.server.controller;
+package com.statistics.server.controller;
 
-import com.order.server.service.ConsumerService;
+import com.statistics.server.service.ConsumerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

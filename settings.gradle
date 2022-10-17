@@ -6,4 +6,4 @@ pluginManagement {
 rootProject.name = 'mall-project'
 include 'application:main-server'
 include 'application:mail-server'
-include 'application:order-server'
+include 'application:statistics-server'

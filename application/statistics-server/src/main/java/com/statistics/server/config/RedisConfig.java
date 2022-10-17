@@ -1,4 +1,4 @@
-package com.order.server.config;
+package com.statistics.server.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.EnableCaching;

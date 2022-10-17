@@ -1,8 +1,7 @@
-package com.order.server.controller;
+package com.statistics.server.controller;
 
 
-import com.order.server.service.AuthService;
-import lombok.Getter;
+import com.statistics.server.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
