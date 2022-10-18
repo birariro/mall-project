@@ -28,6 +28,12 @@ public class ConsumerService {
         productOrderRankRedis(message);
     }
 
+    @KafkaListener(topics = "object-topic")
+    public void objectTest(Object message) throws IOException {
+        System.out.println("받기 ");
+        System.out.println("오브젝트 테스트 = " + message);
+    }
+
     public void productOrderRedis(String productName){
 
         ValueOperations<String, Integer> valueOperations = redisTemplate.opsForValue();
