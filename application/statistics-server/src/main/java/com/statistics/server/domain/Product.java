@@ -1,6 +1,6 @@
-package com.main.server.domain;
+package com.statistics.server.domain;
 
-import com.main.server.domain.base.BaseTimeEntity;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +15,7 @@ import java.io.Serializable;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TB_PRODUCT")
 @ToString
-public class Product extends BaseTimeEntity  implements Serializable {
+public class Product extends BaseTimeEntity   implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

@@ -3,6 +3,7 @@ package com.main.server.service.outside;
 
 import com.main.server.domain.Member;
 import com.main.server.domain.Order;
+import com.main.server.domain.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,6 @@ public class ProducerService {
 
     private final KafkaTemplate<String,Object> kafkaTemplate2;
     public void sendMail(Member member){
-        objectProducerTest(member);
         this.kafkaTemplate.send("message-topic", member.getNickName());
 
     }
@@ -25,9 +25,9 @@ public class ProducerService {
         this.kafkaTemplate.send("new-order-topic", message);
     }
 
-    public void objectProducerTest(Member member){
-        System.out.println("호출 ");
-        this.kafkaTemplate2.send("object-topic", member);
+    public void objectProducerTest(Product product){
+        System.out.println("호출  : "+product);
+        this.kafkaTemplate2.send("object-topic", product);
     }
 
 }
