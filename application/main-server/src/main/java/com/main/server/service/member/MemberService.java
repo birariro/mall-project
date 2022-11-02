@@ -56,7 +56,7 @@ public class MemberService {
 
     public void delete(){
         Member authMember = getAuthMember();
-        authMember.inActive();
+        memberRepository.delete(authMember);
     }
 
     public Member getAuthMember(){

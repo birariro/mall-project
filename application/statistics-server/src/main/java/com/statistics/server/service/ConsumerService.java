@@ -1,5 +1,6 @@
 package com.statistics.server.service;
 
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -26,6 +27,14 @@ public class ConsumerService {
         System.out.println("팔린 제품 = " + message);
 
         productOrderRankRedis(message);
+    }
+
+    @KafkaListener(topics = "object-topic")
+    public void objectTest(String message) throws IOException {
+        System.out.println("받기 ");
+        System.out.println("오브젝트 테스트 = " + message);
+
+
     }
 
     public void productOrderRedis(String productName){

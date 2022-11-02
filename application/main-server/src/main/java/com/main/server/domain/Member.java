@@ -1,7 +1,7 @@
 package com.main.server.domain;
 
 
-import com.main.server.domain.base.BaseStateEntity;
+import com.main.server.domain.base.BaseTimeEntity;
 import com.main.server.domain.value.Address;
 import com.main.server.domain.vo.Email;
 import com.main.server.domain.vo.LoginID;
@@ -21,7 +21,7 @@ import java.util.*;
 @ToString(exclude = {"authorities"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "TB_MEMBER")
-public class Member extends BaseStateEntity implements Serializable{
+public class Member extends BaseTimeEntity implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -62,7 +62,6 @@ public class Member extends BaseStateEntity implements Serializable{
         this.nickName = nickName;
         this.email = email;
         this.address = address;
-        this.active();
 
         Authority authority = Authority.userAuth();
         this.authorities.add(authority);

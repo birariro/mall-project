@@ -75,4 +75,12 @@ public class OrderController {
         OrderDto orderDto = new OrderDto(order);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseService.getResult(orderDto));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity cancelOrder(@PathVariable Long id) throws IllegalAccessException {
+
+        Member authMember = memberService.getAuthMember();
+        orderService.orderCancel(authMember, id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

@@ -34,6 +34,7 @@ public class OrderService {
                     order.appendOrderLine(orderLine);
                     orderLineRepository.save(orderLine);
                     producerService.orderMessage(String.valueOf(orderLine.getProduct().getId()));
+                    producerService.objectProducerTest(orderLine.getProduct());
                 });
 
 
@@ -45,6 +46,15 @@ public class OrderService {
     public Order fetch(Long id){
         Order order = orderRepository.findById(id).orElseThrow(() -> new IllegalStateException("not exist order"));
         return order;
+    }
+
+    public void orderCancel(Member member, Long orderId) throws IllegalAccessException {
+        Order order = this.fetch(orderId);
+
+        if(member != order.getMember()){
+            throw new IllegalAccessException("order access denied");
+        }
+        order.cancel();
     }
 
     public Order fetchMemberWithOrder(Member member, Long id){
