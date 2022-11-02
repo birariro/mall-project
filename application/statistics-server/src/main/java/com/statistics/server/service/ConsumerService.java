@@ -1,6 +1,6 @@
 package com.statistics.server.service;
 
-import com.statistics.server.domain.Product;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -30,9 +30,11 @@ public class ConsumerService {
     }
 
     @KafkaListener(topics = "object-topic")
-    public void objectTest(Product message) throws IOException {
+    public void objectTest(String message) throws IOException {
         System.out.println("받기 ");
         System.out.println("오브젝트 테스트 = " + message);
+
+
     }
 
     public void productOrderRedis(String productName){

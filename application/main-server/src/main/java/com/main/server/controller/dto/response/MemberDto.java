@@ -12,12 +12,10 @@ public class MemberDto {
     private String id;
     private String nickName;
     private String email;
-    private boolean active;
 
     public MemberDto(Member member) {
         this.id = member.getLoginID();
         this.nickName = member.getNickName();
         this.email = member.getEmail();
-        this.active = member.isActive();
     }
 }

@@ -16,7 +16,7 @@ public class ProducerService {
 
     private final KafkaTemplate<String,String> kafkaTemplate;
 
-    private final KafkaTemplate<String,Object> kafkaTemplate2;
+    private final KafkaTemplate<String,String> kafkaTemplate2;
     public void sendMail(Member member){
         this.kafkaTemplate.send("message-topic", member.getNickName());
 
@@ -27,7 +27,9 @@ public class ProducerService {
 
     public void objectProducerTest(Product product){
         System.out.println("호출  : "+product);
-        this.kafkaTemplate2.send("object-topic", product);
+
+        //this.kafkaTemplate2.send("object-topic", product);
+        this.kafkaTemplate2.send("object-topic",product.toString());
     }
 
 }
