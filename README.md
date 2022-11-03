@@ -94,7 +94,7 @@ topic message send
 | 회원 | 회원 전체 조회  | :8081/member         | 완료 |
 |  | 회원 조회     | :8081/member/{id}    | 완료 |
 |  | 회원 수정     | :8081/member/{id}    |  |
-|  | 회원 삭제     | :8081/member/{id}    |  |
+|  | 회원 삭제     | :8081/member/{id}    | 완료 |
 |  |           |                      |  |
 | 상품 | 상품 전체 조회  | :8081/product        | 완료 |
 |  | 상품 조회     | :8081/product/{id}   | 완료 |
