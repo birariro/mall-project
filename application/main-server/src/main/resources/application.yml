@@ -13,6 +13,9 @@ server:
 spring:
   application:
     name: main-server
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
 
   sql:
     init:

@@ -34,7 +34,7 @@ public class OrderService {
                     order.appendOrderLine(orderLine);
                     orderLineRepository.save(orderLine);
                     producerService.orderMessage(String.valueOf(orderLine.getProduct().getId()));
-                    producerService.objectProducerTest(orderLine.getProduct());
+
                 });
 
 

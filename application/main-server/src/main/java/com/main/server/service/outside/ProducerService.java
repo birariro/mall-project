@@ -24,12 +24,5 @@ public class ProducerService {
     public void orderMessage(String message){
         this.kafkaTemplate.send("new-order-topic", message);
     }
-
-    public void objectProducerTest(Product product){
-        System.out.println("호출  : "+product);
-
-        //this.kafkaTemplate2.send("object-topic", product);
-        this.kafkaTemplate2.send("object-topic",product.toString());
-    }
-
+    
 }
